@@ -35,7 +35,6 @@ int check_cycle(listint_t *list)
 * @list: singly linked list.
 * Return: 0 or 1
 */
-
 int check_cycle(listint_t *list)
 {
 	listint_t *head;
