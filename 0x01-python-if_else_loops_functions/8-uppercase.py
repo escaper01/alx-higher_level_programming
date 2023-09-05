@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 def uppercase(str):
+    new_end = ""
+    str_size = len(str)
     if len(str) == 0:
         return
-    for i in str:
+    for index, i in enumerate:
+        if i == str_size - 1:
+            new_end = "\n"
         if ord(i) >= 97 and ord(i) <= 122:
-            print("{}".format(chr(ord(i) - 32)), end="")
+            print("{}".format(chr(ord(i) - 32)), end=new_end)
         else:
-            print("{}".format(i), end="")
+            print("{}".format(i), end=new_end)
