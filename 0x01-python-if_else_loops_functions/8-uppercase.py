@@ -12,5 +12,3 @@ def uppercase(str):
         else:
             print("{}".format(i), end=new_end)
 
-
-uppercase("holberton")
