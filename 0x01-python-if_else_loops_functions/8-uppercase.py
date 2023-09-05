@@ -3,7 +3,7 @@ def uppercase(str):
     new_end = ""
     str_size = len(str)
     if len(str) == 0:
-        return
+        return "\n"
     for index, i in enumerate(str):
         if index == str_size - 1:
             new_end = "\n"
