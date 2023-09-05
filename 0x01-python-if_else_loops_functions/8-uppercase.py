@@ -4,7 +4,7 @@ def uppercase(str):
     str_size = len(str)
     if len(str) == 0:
         return
-    for index, i in enumerate:
+    for index, i in enumerate(str):
         if i == str_size - 1:
             new_end = "\n"
         if ord(i) >= 97 and ord(i) <= 122:
