@@ -5,9 +5,12 @@ def uppercase(str):
     if len(str) == 0:
         return
     for index, i in enumerate(str):
-        if i == str_size - 1:
+        if index == str_size - 1:
             new_end = "\n"
         if ord(i) >= 97 and ord(i) <= 122:
             print("{}".format(chr(ord(i) - 32)), end=new_end)
         else:
             print("{}".format(i), end=new_end)
+
+
+uppercase("holberton")
