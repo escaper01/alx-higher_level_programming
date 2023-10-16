@@ -1,4 +1,3 @@
-from tkinter import NO
 from .base import Base
 import sys
 
