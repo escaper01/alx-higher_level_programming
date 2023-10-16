@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This module contains a rectangle class"""
 
-
 from .base import Base
 import sys
 
