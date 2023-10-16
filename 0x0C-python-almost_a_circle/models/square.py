@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""This module contains a class to serve as base for other classes"""
+
+
+
 from .rectangle import Rectangle
 
 
