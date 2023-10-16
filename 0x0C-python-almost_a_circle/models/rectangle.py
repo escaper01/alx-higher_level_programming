@@ -4,20 +4,21 @@ from .base import Base
 import sys
 
 class Rectangle(Base):
-    """_summary_
-
-    Args:
-        Base (_type_): _description_
-    """
+    """Represent a rectangle."""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """_summary_
+        """Initialize a new Rectangle.
 
         Args:
-            width (_type_): _description_
-            height (_type_): _description_
-            x (int, optional): _description_. Defaults to 0.
-            y (int, optional): _description_. Defaults to 0.
-            id (_type_, optional): _description_. Defaults to None.
+            width (int): The width of the new Rectangle.
+            height (int): The height of the new Rectangle.
+            x (int): The x coordinate of the new Rectangle.
+            y (int): The y coordinate of the new Rectangle.
+            id (int): The identity of the new Rectangle.
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
         """
         super().__init__(id)
         self.width = width
@@ -28,28 +29,20 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
+        """Set/get the width of the Rectangle."""
         return self.__width
 
     @property
     def height(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
+        """Set/get the height of the Rectangle."""
         return self.__height
 
     @property
     def x(self):
-        """_summary_
+        """ x of triangle
 
         Returns:
-            _type_: _description_
+            self: _description_
         """
         return self.__x
     
@@ -64,15 +57,6 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
-        """_summary_
-
-        Args:
-            width (_type_): _description_
-
-        Raises:
-            ValueError: _description_
-            TypeError: _description_
-        """
         if isinstance(width, int):
             if width < 0:
                 raise ValueError("width must be > 0")
@@ -82,15 +66,6 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
-        """_summary_
-
-        Args:
-            height (_type_): _description_
-
-        Raises:
-            ValueError: _description_
-            TypeError: _description_
-        """
         if isinstance(height, int):
             if height < 0:
                 raise ValueError("height must be > 0")
@@ -100,15 +75,6 @@ class Rectangle(Base):
     
     @x.setter
     def x(self, x):
-        """_summary_
-
-        Args:
-            x (_type_): _description_
-
-        Raises:
-            ValueError: _description_
-            TypeError: _description_
-        """
         if isinstance(x, int):
             if x < 0:
                 raise ValueError("x must be >= 0")
@@ -118,15 +84,6 @@ class Rectangle(Base):
     
     @y.setter
     def y(self, y):
-        """_summary_
-
-        Args:
-            y (_type_): _description_
-
-        Raises:
-            ValueError: _description_
-            TypeError: _description_
-        """
         if isinstance(y, int):
             if y < 0:
                 raise ValueError("y must be >= 0")
@@ -136,16 +93,12 @@ class Rectangle(Base):
         
     
     def area(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
+        """Return the area of the Rectangle."""
         return self.width * self.height
     
     def display(self):
-        """_summary_
-        """
+        """Print the Rectangle using the `#` character."""
+
         for y in range(self.y):
                     sys.stdout.write("\n")
         
@@ -169,7 +122,16 @@ class Rectangle(Base):
                                                                 self.width, self.height)
     
     def update(self, *args, **kwargs):
-        """_summary_
+        """Update the Rectangle.
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
         """
         if len(args) != 0:
             for i, elem in enumerate(args):
