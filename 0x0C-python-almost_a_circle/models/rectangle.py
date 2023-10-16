@@ -3,8 +3,10 @@
 from .base import Base
 import sys
 
+
 class Rectangle(Base):
     """Represent a rectangle."""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a new Rectangle.
 
@@ -26,7 +28,6 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-
     @property
     def width(self):
         """Set/get the width of the Rectangle."""
@@ -45,7 +46,7 @@ class Rectangle(Base):
             self: _description_
         """
         return self.__x
-    
+
     @property
     def y(self):
         """_summary_
@@ -72,7 +73,7 @@ class Rectangle(Base):
             self.__height = height
         else:
             raise TypeError("height must be an integer")
-    
+
     @x.setter
     def x(self, x):
         if isinstance(x, int):
@@ -80,8 +81,9 @@ class Rectangle(Base):
                 raise ValueError("x must be >= 0")
             self.__x = x
         else:
-            raise TypeError("x must be an integer")
-    
+            raise (
+                TypeError("x must be an integer"))
+
     @y.setter
     def y(self, y):
         if isinstance(y, int):
@@ -90,37 +92,35 @@ class Rectangle(Base):
             self.__y = y
         else:
             raise TypeError("y must be an integer")
-        
-    
+
     def area(self):
         """Return the area of the Rectangle."""
         return self.width * self.height
-    
+
     def display(self):
         """Print the Rectangle using the `#` character."""
 
         for y in range(self.y):
-                    sys.stdout.write("\n")
-        
+            sys.stdout.write("\n")
+
         for i in range(self.height):
             for x in range(self.x):
-                    sys.stdout.write(" ")
+                sys.stdout.write(" ")
 
             for j in range(self.width):
                 sys.stdout.write("#")
 
             sys.stdout.write("\n")
-            
+
     def __str__(self) -> str:
         """_summary_
 
         Returns:
             str: _description_
         """
-        return "[Rectangle] ({0}) {1}/{2} - {3}/{4}".format(self.id, 
-                                                                self.x, self.y, 
-                                                                self.width, self.height)
-    
+        return ("[Rectangle] ({0}) {1}/{2} - {3}/{4}"
+                .format(self.id, self.x, self.y, self.width, self.height))
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
@@ -156,7 +156,6 @@ class Rectangle(Base):
                 self.x = kwargs["x"]
             if "y" in kwargs:
                 self.y = kwargs["y"]
-    
 
     def to_dictionary(self):
         """Return the dictionary representation of the Square."""
