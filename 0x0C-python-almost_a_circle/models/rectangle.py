@@ -27,22 +27,51 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.__width
 
     @property
     def height(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.__height
 
     @property
     def x(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.__x
     
     @property
     def y(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.__y
 
     @width.setter
     def width(self, width):
+        """_summary_
+
+        Args:
+            width (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+            TypeError: _description_
+        """
         if isinstance(width, int):
             if width < 0:
                 raise ValueError("width must be > 0")
@@ -52,6 +81,15 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
+        """_summary_
+
+        Args:
+            height (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+            TypeError: _description_
+        """
         if isinstance(height, int):
             if height < 0:
                 raise ValueError("height must be > 0")
@@ -61,6 +99,15 @@ class Rectangle(Base):
     
     @x.setter
     def x(self, x):
+        """_summary_
+
+        Args:
+            x (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+            TypeError: _description_
+        """
         if isinstance(x, int):
             if x < 0:
                 raise ValueError("x must be >= 0")
@@ -70,6 +117,15 @@ class Rectangle(Base):
     
     @y.setter
     def y(self, y):
+        """_summary_
+
+        Args:
+            y (_type_): _description_
+
+        Raises:
+            ValueError: _description_
+            TypeError: _description_
+        """
         if isinstance(y, int):
             if y < 0:
                 raise ValueError("y must be >= 0")
@@ -79,9 +135,16 @@ class Rectangle(Base):
         
     
     def area(self):
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.width * self.height
     
     def display(self):
+        """_summary_
+        """
         for y in range(self.y):
                     sys.stdout.write("\n")
         
@@ -95,11 +158,18 @@ class Rectangle(Base):
             sys.stdout.write("\n")
             
     def __str__(self) -> str:
+        """_summary_
+
+        Returns:
+            str: _description_
+        """
         return "[Rectangle] ({0}) {1}/{2} - {3}/{4}".format(self.id, 
                                                                 self.x, self.y, 
                                                                 self.width, self.height)
     
     def update(self, *args, **kwargs):
+        """_summary_
+        """
         if len(args) != 0:
             for i, elem in enumerate(args):
                 if i == 0:
@@ -124,3 +194,12 @@ class Rectangle(Base):
             if "y" in kwargs:
                 self.y = kwargs["y"]
     
+
+    def to_dictionary(self):
+        """Return the dictionary representation of the Square."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
