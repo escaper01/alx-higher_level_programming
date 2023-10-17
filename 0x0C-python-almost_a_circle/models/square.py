@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""This module contains a class to serve as base for other classes"""
-
-from .rectangle import Rectangle
+"""Defines a square class."""
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -24,14 +23,9 @@ class Square(Rectangle):
         return self.width
 
     @size.setter
-    def size(self, val):
-        """_summary_
-
-        Args:
-            val (_type_): _description_
-        """
-        self.width = val
-        self.height = val
+    def size(self, value):
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """Update the Square.
@@ -83,9 +77,7 @@ class Square(Rectangle):
             "y": self.y
         }
 
-    def __str__(self) -> str:
+    def __str__(self):
         """Return the print() and str() representation of a Square."""
-
-        return "[Square] ({0}) {1}/{2} - {3}".format(self.id,
-                                                     self.x, self.y,
-                                                     self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
